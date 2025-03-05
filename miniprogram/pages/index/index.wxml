@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="header">
+    <text class="title">二维码生成器</text>
+  </view>
+  
+  <view class="input-section">
+    <view class="input-group">
+      <text class="label">输入内容：</text>
+      <textarea class="input" bindinput="onInputChange" placeholder="请输入文字、网址或其他内容" value="{{content}}" />
+    </view>
+    
+    <view class="type-selector">
+      <text class="label">内容类型：</text>
+      <radio-group bindchange="onTypeChange">
+        <label class="radio-item">
+          <radio value="text" checked="{{type === 'text'}}"/>文本
+        </label>
+        <label class="radio-item">
+          <radio value="url" checked="{{type === 'url'}}"/>网址
+        </label>
+        <label class="radio-item">
+          <radio value="image" checked="{{type === 'image'}}"/>图片
+        </label>
+      </radio-group>
+    </view>
+
+    <button class="generate-btn" bindtap="generateQRCode">生成二维码</button>
+  </view>
+
+  <view class="qrcode-section">
+    <canvas class="qrcode-canvas" canvas-id="qrcode" style="width: 350rpx; height: 350rpx;"></canvas>
+    <view class="qrcode-preview" wx:if="{{qrCodePath}}">
+      <image class="qrcode" src="{{qrCodePath}}" mode="aspectFit" bindtap="previewQRCode" style="width: 350rpx; height: 350rpx;"/>
+      <button class="save-btn" bindtap="saveQRCode">保存二维码</button>
+    </view>
+  </view>
+</view> 
