@@ -28,7 +28,7 @@
   </view>
 
   <view class="qrcode-section">
-    <canvas class="qrcode-canvas" canvas-id="qrcode" style="width: 350rpx; height: 350rpx;"></canvas>
+    <canvas class="qrcode-canvas" canvas-id="qrcode" style="width: 350rpx; height: 350rpx; position: fixed; left: -9999rpx;"></canvas>
     <view class="qrcode-preview" wx:if="{{qrCodePath}}">
       <image class="qrcode" src="{{qrCodePath}}" mode="aspectFit" bindtap="previewQRCode" style="width: 350rpx; height: 350rpx;"/>
       <button class="save-btn" bindtap="saveQRCode">保存二维码</button>
