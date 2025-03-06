@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="card">
+    <view class="title">二维码生成器</view>
+    
+    <!-- 类型选择 -->
+    <view class="type-selector">
+      <view class="type-item {{currentType === 'text' ? 'active' : ''}}" bindtap="switchType" data-type="text">
+        <image src="/assets/icons/text.png" mode="aspectFit"></image>
+        <text>文字</text>
+      </view>
+      <view class="type-item {{currentType === 'url' ? 'active' : ''}}" bindtap="switchType" data-type="url">
+        <image src="/assets/icons/url.png" mode="aspectFit"></image>
+        <text>网址</text>
+      </view>
+      <view class="type-item {{currentType === 'image' ? 'active' : ''}}" bindtap="switchType" data-type="image">
+        <image src="/assets/icons/image.png" mode="aspectFit"></image>
+        <text>图片</text>
+      </view>
+    </view>
+
+    <!-- 文字输入区域 -->
+    <view class="input-area" wx:if="{{currentType === 'text'}}">
+      <textarea class="input-box" 
+                placeholder="请输入要转换的文字" 
+                maxlength="500"
+                value="{{inputContent}}"
+                bindinput="handleInput"></textarea>
+      <view class="word-count">{{inputContent.length}}/500</view>
+    </view>
+
+    <!-- 网址输入区域 -->
+    <view class="input-area" wx:if="{{currentType === 'url'}}">
+      <input class="input-box" 
+             type="text"
+             placeholder="请输入网址" 
+             value="{{inputContent}}"
+             bindinput="handleInput"/>
+    </view>
+
+    <!-- 图片选择区域 -->
+    <view class="input-area" wx:if="{{currentType === 'image'}}">
+      <view class="image-picker" bindtap="chooseImage" wx:if="{{!tempImagePath}}">
+        <image src="/assets/icons/upload.png" mode="aspectFit"></image>
+        <text>点击选择图片</text>
+      </view>
+      <view class="selected-image" wx:else>
+        <image src="{{tempImagePath}}" mode="aspectFit"></image>
+        <view class="image-actions">
+          <button class="btn-small" bindtap="chooseImage">重新选择</button>
+          <button class="btn-small btn-danger" bindtap="removeImage">删除</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 生成按钮 -->
+    <button class="btn-primary" bindtap="generateQRCode">生成二维码</button>
+  </view>
+
+  <!-- 预览区域 -->
+  <view class="card preview-area" wx:if="{{qrcodePath}}">
+    <view class="title">预览</view>
+    <image class="qrcode" src="{{qrcodePath}}" mode="aspectFit"></image>
+    <view class="action-buttons">
+      <button class="btn-primary" bindtap="saveQRCode">保存到相册</button>
+      <button class="btn-primary" bindtap="shareQRCode" open-type="share">分享</button>
+    </view>
+  </view>
+</view> 

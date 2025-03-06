@@ -4,9 +4,6 @@
     "ignore": [],
     "include": []
   },
-  "miniprogramRoot": "miniprogram/",
-  "compileType": "miniprogram",
-  "projectname": "QRcodeMaker",
   "setting": {
     "urlCheck": true,
     "es6": true,
@@ -16,7 +13,7 @@
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": true,
+    "nodeModules": false,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -25,7 +22,10 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -33,12 +33,12 @@
     },
     "enableEngineNative": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "compileWorklet": false,
     "minifyWXSS": true,
+    "showES6CompileOption": false,
+    "compileWorklet": false,
     "minifyWXML": true,
     "localPlugins": false,
     "disableUseStrict": false,
@@ -47,9 +47,31 @@
     "swc": false,
     "disableSWC": true
   },
+  "compileType": "miniprogram",
+  "libVersion": "2.19.4",
   "appid": "wx220257e195d42c38",
-  "libVersion": "2.20.1",
-  "condition": {},
+  "projectname": "二维码生成器",
+  "isGameTourist": false,
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
+    }
+  },
   "simulatorPluginLibVersion": {},
   "editorSetting": {}
 }

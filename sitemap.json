@@ -1,5 +1,5 @@
 {
-  "desc": "小程序二维码生成器的sitemap配置",
+  "desc": "小程序页面配置",
   "rules": [{
     "action": "allow",
     "page": "*"
