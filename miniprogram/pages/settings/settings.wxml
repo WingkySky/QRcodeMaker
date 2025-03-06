@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="section">
+    <view class="section-title">二维码样式</view>
+    <view class="card">
+      <view class="setting-item">
+        <text>二维码颜色</text>
+        <view class="color-picker">
+          <view class="color-preview" style="background-color: {{qrCodeStyle.colorDark}}" bindtap="showColorPicker" data-type="dark"></view>
+          <text class="color-value">{{qrCodeStyle.colorDark}}</text>
+        </view>
+      </view>
+      <view class="setting-item">
+        <text>背景颜色</text>
+        <view class="color-picker">
+          <view class="color-preview" style="background-color: {{qrCodeStyle.colorLight}}" bindtap="showColorPicker" data-type="light"></view>
+          <text class="color-value">{{qrCodeStyle.colorLight}}</text>
+        </view>
+      </view>
+      <view class="setting-item">
+        <text>二维码大小</text>
+        <slider min="100" max="800" step="50" value="{{qrCodeStyle.width}}" bindchange="handleSizeChange" show-value/>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">内容限制</view>
+    <view class="card">
+      <view class="setting-item">
+        <text>文字长度限制</text>
+        <input type="number" class="input-box" value="{{config.maxTextLength}}" bindblur="handleTextLengthChange"/>
+      </view>
+      <view class="setting-item">
+        <text>图片大小限制(KB)</text>
+        <input type="number" class="input-box" value="{{config.maxImageSize}}" bindblur="handleImageSizeChange"/>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">关于</view>
+    <view class="card">
+      <view class="setting-item">
+        <text>版本</text>
+        <text class="text-right">1.0.0</text>
+      </view>
+      <view class="setting-item">
+        <text>开发者</text>
+        <text class="text-right">Your Name</text>
+      </view>
+      <button class="btn-feedback" open-type="feedback">意见反馈</button>
+    </view>
+  </view>
+</view> 

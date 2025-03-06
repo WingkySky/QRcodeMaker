@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 功能选择区 -->
+  <view class="type-selector">
+    <view class="type-item {{currentType === 'text' ? 'active' : ''}}" bindtap="switchType" data-type="text">
+      <text>文字</text>
+    </view>
+    <view class="type-item {{currentType === 'url' ? 'active' : ''}}" bindtap="switchType" data-type="url">
+      <text>网址</text>
+    </view>
+    <view class="type-item {{currentType === 'image' ? 'active' : ''}}" bindtap="switchType" data-type="image">
+      <text>图片</text>
+    </view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <block wx:if="{{currentType === 'text'}}">
+      <textarea class="input-box" 
+        placeholder="请输入要转换的文字" 
+        maxlength="{{config.maxTextLength}}"
+        bindinput="handleInput"
+        value="{{inputContent}}">
+      </textarea>
+      <view class="text-counter">{{inputContent.length}}/{{config.maxTextLength}}</view>
+    </block>
+
+    <block wx:if="{{currentType === 'url'}}">
+      <input class="input-box" 
+        type="text"
+        placeholder="请输入网址" 
+        bindinput="handleInput"
+        value="{{inputContent}}"/>
+    </block>
+
+    <block wx:if="{{currentType === 'image'}}">
+      <view class="image-picker" bindtap="chooseImage" wx:if="{{!tempImagePath}}">
+        <text class="iconfont icon-add"></text>
+        <text>点击选择图片</text>
+      </view>
+      <view class="selected-image" wx:else>
+        <image src="{{tempImagePath}}" mode="aspectFit"></image>
+        <view class="image-actions">
+          <button class="btn-small" bindtap="chooseImage">重新选择</button>
+          <button class="btn-small btn-danger" bindtap="removeImage">删除</button>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 生成按钮 -->
+  <button class="btn-primary" bindtap="generateQRCode" disabled="{{!canGenerate}}">
+    生成二维码
+  </button>
+
+  <!-- 预览区域 -->
+  <view class="preview-area" wx:if="{{qrCodePath}}">
+    <image class="qr-code" src="{{qrCodePath}}" mode="aspectFit"></image>
+    <view class="action-buttons">
+      <button class="btn-action" bindtap="saveQRCode">保存到相册</button>
+      <button class="btn-action" open-type="share">分享</button>
+    </view>
+  </view>
+</view> 

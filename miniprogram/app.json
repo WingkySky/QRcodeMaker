@@ -6,35 +6,39 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#07c160",
     "navigationBarTitleText": "二维码生成器",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#1296db",
+    "selectedColor": "#07c160",
     "backgroundColor": "#ffffff",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "/assets/icons/tabbar/home.png",
-        "selectedIconPath": "/assets/icons/tabbar/home-active.png"
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
       },
       {
         "pagePath": "pages/history/history",
         "text": "历史",
-        "iconPath": "/assets/icons/tabbar/history.png",
-        "selectedIconPath": "/assets/icons/tabbar/history-active.png"
+        "iconPath": "images/history.png",
+        "selectedIconPath": "images/history-active.png"
       },
       {
         "pagePath": "pages/settings/settings",
         "text": "设置",
-        "iconPath": "/assets/icons/tabbar/settings.png",
-        "selectedIconPath": "/assets/icons/tabbar/settings-active.png"
+        "iconPath": "images/settings.png",
+        "selectedIconPath": "images/settings-active.png"
       }
     ]
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
 } 

@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="history-list">
+    <block wx:if="{{historyList.length > 0}}">
+      <view class="card history-item" wx:for="{{historyList}}" wx:key="_id">
+        <view class="history-content">
+          <image class="qr-code-thumb" src="{{item.qrCodePath}}" mode="aspectFit"></image>
+          <view class="info">
+            <view class="type-tag">{{item.type === 'text' ? '文字' : item.type === 'url' ? '网址' : '图片'}}</view>
+            <view class="content-text">{{item.content}}</view>
+            <view class="time">{{item.createTime}}</view>
+          </view>
+        </view>
+        <view class="actions">
+          <button class="btn-action" bindtap="previewQRCode" data-url="{{item.qrCodePath}}">查看</button>
+          <button class="btn-action" bindtap="regenerateQRCode" data-item="{{item}}">重新生成</button>
+          <button class="btn-action btn-danger" bindtap="deleteHistory" data-id="{{item._id}}">删除</button>
+        </view>
+      </view>
+    </block>
+    <view class="empty-tip" wx:else>
+      <text>暂无历史记录</text>
+    </view>
+  </view>
+
+  <!-- 清空历史按钮 -->
+  <button class="btn-clear" bindtap="clearHistory" wx:if="{{historyList.length > 0}}">
+    清空历史记录
+  </button>
+</view> 

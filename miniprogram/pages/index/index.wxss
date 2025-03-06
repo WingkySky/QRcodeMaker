@@ -2,32 +2,21 @@
 .type-selector {
   display: flex;
   justify-content: space-around;
-  padding: 20rpx 0;
-  margin-bottom: 30rpx;
-  border-bottom: 2rpx solid var(--border-color);
-}
-
-.type-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #ffffff;
   padding: 20rpx;
+  margin-bottom: 30rpx;
   border-radius: 12rpx;
 }
 
+.type-item {
+  padding: 20rpx 40rpx;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+}
+
 .type-item.active {
-  background-color: rgba(18, 150, 219, 0.1);
-}
-
-.type-item image {
-  width: 48rpx;
-  height: 48rpx;
-  margin-bottom: 10rpx;
-}
-
-.type-item text {
-  font-size: 28rpx;
-  color: var(--text-color);
+  background-color: var(--primary-color);
+  color: #ffffff;
 }
 
 /* 输入区域样式 */
@@ -40,29 +29,28 @@ textarea.input-box {
   height: 200rpx;
 }
 
-.word-count {
+.text-counter {
   text-align: right;
+  color: #999999;
   font-size: 24rpx;
-  color: #999;
   margin-top: 10rpx;
 }
 
-/* 图片选择器样式 */
 .image-picker {
+  width: 100%;
+  height: 300rpx;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 300rpx;
-  background-color: #f8f8f8;
-  border: 2rpx dashed #ddd;
+  align-items: center;
+  border: 2rpx dashed var(--border-color);
   border-radius: 12rpx;
 }
 
-.image-picker image {
-  width: 64rpx;
-  height: 64rpx;
-  margin-bottom: 20rpx;
+.image-picker text {
+  color: #999999;
+  margin-top: 20rpx;
 }
 
 .selected-image {
@@ -90,27 +78,33 @@ textarea.input-box {
 
 .btn-danger {
   background-color: #ff4d4f;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* 预览区域样式 */
 .preview-area {
-  margin-top: 30rpx;
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.qrcode {
-  width: 100%;
-  height: 500rpx;
-  margin: 20rpx 0;
+.qr-code {
+  width: 400rpx;
+  height: 400rpx;
+  margin-bottom: 30rpx;
 }
 
 .action-buttons {
   display: flex;
-  justify-content: space-around;
-  margin-top: 30rpx;
+  gap: 30rpx;
 }
 
-.action-buttons button {
-  margin: 0;
-  min-width: 200rpx;
-}
+.btn-action {
+  font-size: 28rpx;
+  padding: 15rpx 40rpx;
+  background-color: #ffffff;
+  border: 2rpx solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 8rpx;
+} 
